@@ -1,0 +1,92 @@
+<!--{template common/header}-->
+<!--[name]list_video[/name]-->
+<!--{eval $list = array();}-->
+<!--{eval $wheresql = category_get_wheresql($cat);}-->
+<!--{eval $list = category_get_list($cat, $wheresql, $page);}-->
+
+<div aria-label="breadcrumb" class="br">
+	<div class="container">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="./" title="{lang homepage}">{lang homepage}</a></li>
+		  <li class="breadcrumb-item active" aria-current="page">
+		  	<!--{loop $cat[ups] $value}--> <a href="{$portalcategory[$value['catid']]['caturl']}">$value[catname]</a><em>&rsaquo;</em><!--{/loop}-->
+		  	$cat[catname]
+		  </li>
+		</ol>
+	</div>
+</div>
+
+<div class="list video">
+	<div class="container">
+		<div class="fliterbar">
+			<ul>
+				<li>
+					<label>按部位</label>
+                    <span {if $part_tag == 0} class="selected"{/if}><a href="$cat[caturl]?type=$type_tag&age=$age_tag">全部</a></span>
+{loop $tag_parts $tag_part}
+                    <span {if $part_tag == $tag_part[id]} class="selected"{/if}><a href="$cat[caturl]?type=$type_tag&age=$age_tag&part=$tag_part[id]">$tag_part[name]</a></span>
+{/loop}
+				</li>
+				<li>
+					<label>按年龄</label>
+                    <span {if $age_tag == 0} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=$type_tag">全部</a></span>
+                    <span {if $age_tag == 1} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=$type_tag&age=1">儿童</a></span>
+                    <span {if $age_tag == 2} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=$type_tag&age=2">成人</a></span>
+				</li>
+				<li>
+					<label>按阶段</label>
+                    <span {if $type_tag == 0} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&age=$age_tag">全部</a></span>
+                    <span {if $type_tag == 1} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=1&age=$age_tag">急救</a></span>
+                    <span {if $type_tag == 2} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=2&age=$age_tag">治疗</a></span>
+                    <span {if $type_tag == 3} class="selected"{/if}><a href="$cat[caturl]?part=$part_tag&type=3&age=$age_tag">预防</a></span>
+				</li>
+			</ul>
+			<a href="video/body" class="btn btn-primary btn-body-search"><i class="icon icon-body"></i></a>
+			
+		</div>
+
+		<div class="row">
+            <!--{if count($list['list']) == 0}-->
+            <div class="tipbox">内容正在补充中……</div>
+            <!--{/if}-->
+			<!--{loop $list['list'] $value}-->
+				<!--{eval $highlight = article_title_style($value);}-->
+				<!--{eval $article_url = fetch_article_url($value);}-->
+
+				
+
+
+			<div class="col">
+				<div class="card">
+					
+					<a href="$article_url" class="card-img-top video"  style="<!--{if $value[pic]}-->background-image: url($value[pic]);<!--{/if}-->"></a>
+					
+					
+					<div class="card-body">
+				    	<h5 class="card-title">
+					    <a href="$article_url" class="xi2" $highlight>$value[title]</a> <!--{if $value[status] == 1}-->({lang moderate_need})<!--{/if}-->
+						</h5>
+						<div class="meta"><span class="view"><i class="icon icon-eye"></i>{$value[viewnum]}</span><span class="reply"><i class="icon icon-reply"></i><!--{if $article[commentnum] > 0}-->$article[commentnum]<!--{else}-->0<!--{/if}--></span></div>
+				  	</div>
+				</div>
+			</div>
+
+
+			<!--{/loop}-->
+			
+
+		</div>
+	</div>
+</div>
+
+			
+
+
+		<!--{if $list['multi']}--><div class="pgs cl">{$list['multi']}</div><!--{/if}-->
+
+
+	</div>
+</div>
+
+
+<!--{template common/footer}-->

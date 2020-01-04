@@ -1,0 +1,317 @@
+<!-- 文章内容页-热门文章/热门产品 -->
+<h2 class="block-title">热门文章</h2>
+<div class="block-content">
+	<ul class="cl">
+		[loop]
+		<li><a href="{url}" title="{title}"{target}>{title}</a></li>
+		[/loop]
+	</ul>
+</div>
+
+
+
+<!-- 首页-轮播图-1440*536 -->
+[loop]
+<div class="carousel-item">
+	<a href="{url}" {target} style="background-image: url({pic})" title="{title}"></a>
+</div>
+[/loop]
+[order=1]
+<div class="carousel-item active">
+	<a href="{url}" {target} style="background-image: url({pic})" title="{title}"></a>
+</div>
+[/order]
+<span class="picsize">{picwidth}({picheight}</span>
+
+<!-- 首页-烧烫伤了怎么办-推送 -->
+<div class="module">
+	<ul>
+		[order=1]
+		<li class="top">
+			<a href="{url}" title="{title}"{target}>{title}</a>
+			<p>{summary}</p>
+		</li>
+		[/order]
+		[loop]
+		<li><a href="{url}" title="{title}"{target}>{title}</a></li>
+		[/loop]
+	</ul>
+</div>
+
+
+<!-- 首页-烧烫伤了怎么办-右俩图 -->
+[loop]
+	<dl class="box pic">
+		<dd class="m"><a href="{url}" class="box-cover" style="display: block; height: 209px; background: url({pic}) no-repeat center center; background-size: cover;" target="_blank"></a></dd>
+		<dt><a href="{url}" title="{title}" {target}>{title}</a></dt>
+	</dl>
+[/loop]
+<span class="picsize">{picwidth}({picheight}</span>
+
+<!-- 首页-烧烫伤了怎么办-最新文章 -->
+<h2 class="block-title">最新文章<a href="share" class="more">查看更多</a></h2>
+<div class="block-content">
+	<div class="module">
+		<ul>
+			[loop]
+			<li class="d-flex justify-content-between"><a href="{url}" title="{title}"{target}>{title}</a><span class="date">{dateline}</span></li>
+			[/loop]
+		</ul>
+	</div>
+</div>
+
+
+<!-- 首页-烧烫伤了怎么办-中上图、左下图 -->
+<div class="slidebox">
+	<ul class="slideshow">
+	[loop]
+	<li style="width: {picwidth}px; height: {picheight}px;"><a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" /></a><span class="title">{title}</span></li>
+	[/loop]
+	</ul>
+</div>
+<script type="text/javascript">
+runslideshow();
+</script>
+<span class="picsize">{picwidth}({picheight}</span>	
+
+<!-- 首页-精选问答- -->
+<div class="module">
+[loop]
+<dl>
+	<dd class="author"><a href="http://ja.smartwell.cn/home.php?mod=space&uid={authorid}"{target}><img src="{avatar}" class="avatar"><span class="name">{author}</span></a></dd>
+	<dt class="title"><a href="{url}" title="{title}"{target}>{title}</a></dt>
+	<dd class="type"><a href="{typeurl}" title="{typename}">{typename}</a></dd>
+	<dd class="summary">{summary}</dd>
+</dl>
+[/loop]
+</div>
+
+
+<!-- 首页-精选问答-右侧图片-372*154 -->
+[loop]
+	<dl class="box pic">
+		<dd class="m"><a href="{url}" style="display: block; height: 154px; background: url({pic}) no-repeat center center; background-size: cover;" target="_blank"></a></dd>
+		<dt><a href="{url}" title="{title}" {target}>{title}</a></dt>
+	</dl>
+[/loop]
+<span class="picsize">{picwidth}({picheight}</span>
+
+<!-- 首页-病例分享-545*307 -->
+[loop]
+<div class="col-md-6">
+	<dl class="box pic">
+		<dd class="m"><a href="{url}" style="display: block; height: 307px; background: url({pic}) no-repeat center center; background-size: cover;" target="_blank"></a></dd>
+	</dl>
+</div>
+[/loop]
+<span class="picsize">{picwidth}({picheight}</span>	
+
+<!-- 首页-康复视频-372*209 -->
+<div class="module row">
+	[loop]
+	<div class="col-md-4">
+		<dl class="box v">
+			<dd class="m"><a href="{url}" style="height: 209px; background: url({pic}) no-repeat center center; background-size: cover;" title="{title}" {target}></a></dd>
+			<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+		</dl>
+	</div>
+	[/loop]
+</div>
+<span class="picsize">{picwidth}({picheight}</span>	
+
+
+
+
+
+<!-- 首页-精选视频-384*216 -->
+<h2 class="block-title"><i class="icon icon-video"></i>精选视频
+	<a href="video" title="查看更多" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<div class="row module cl">
+		[loop]
+		<div class="col-sm-3">
+			<dl class="box v">
+				<dd class="m"><a href="{url}" style="background: url({pic}) no-repeat center center; background-size: cover;" title="{title}" {target}></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			</dl>
+		</div>
+		[/loop]
+	</div>
+</div>
+
+<!-- 首页-儿童烧烫伤 -->
+<h2 class="block-title"><i class="icon icon-kids"></i>儿童烧烫伤
+	<a href="forum.php?gid=1" title="More" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<ul>
+		[loop]
+		<li><a href="{url}" title="{title}"{target}>{title}</a><em>{dateline}</em></li>
+		[/loop]
+	</ul>
+</div>
+
+<!-- 首页-成人烧烫伤 -->
+<h2 class="block-title"><i class="icon icon-adult"></i>成人烧烫伤
+	<a href="forum.php?gid=38" title="More" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<ul>
+		[loop]
+		<li><a href="{url}" title="{title}"{target}>{title}</a><em>{dateline}</em></li>
+		[/loop]
+	</ul>
+</div>
+
+<!-- 首页-康复用具 -->
+<h2 class="block-title"><i class="icon icon-appliance"></i>康复用具
+	<a href="forum.php?gid=46" title="More" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<ul>
+		[loop]
+		<li><a href="{url}" title="{title}"{target}>{title}</a><em>{dateline}</em></li>
+		[/loop]
+	</ul>
+</div>
+
+<!-- 首页-热门讨论 -->
+<h2 class="block-title">热门讨论
+	<a href="forum.php" title="More" class="more"><i class="icon icon-more"></i></a>
+</h2>
+<div class="block-content">
+	<div class="module cl">
+		<ul class="row">
+			[loop]
+			<li class="col">
+				<div class="box talk">
+					<a href="home.php?mod=space&uid={authorid}" class="author">
+					<img src="{avatar}" class="img-fluid avatar rounded-circle" alt ="{author}"/>
+					{author}
+				</a>
+				<a href="{url}" title="{title}"{target} class="topic">{title}</a>
+					<div class="meta"><span class="view"><i class="icon icon-eye"></i>{views}</span><span class="reply"><i class="icon icon-reply"></i>{replies}</span>
+					</div>
+			</li>
+			[/loop]
+		</ul>
+	</div>
+</div>
+
+
+<!-- 首页-病例分享-384*248 -->
+<h2 class="block-title"><i class="icon icon-case"></i>病例分享
+	<a href="share" title="查看更多" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<div class="row module cl">
+		[loop]
+		<div class="col">
+			<dl class="box pic">
+				<dd class="m"><a href="{url}" style="display: block; height: 240px; background: url({pic}) no-repeat center center; background-size: cover;" {target}></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			</dl>
+		</div>
+		[/loop]
+	</div>
+</div>
+
+<!-- 首页-相关产品-273*273 -->
+<h2 class="block-title"><i class="icon icon-product"></i>相关产品
+	<a href="product" title="查看更多" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<div class="row module cl">
+		[loop]
+		<dl class="col-sm-3 product">
+			<dd class="m"><a href="{url}"{target} title="{title}" class="cover" style="background-image: url({pic});"></a></dd>
+			<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+		</dl>
+		[/loop]
+	</div>
+</div>
+
+<!-- 首首页-更多文章-380*506、373*240、780*243 -->
+<h2 class="block-title"><i class="icon icon-article"></i>更多文章
+	<a href="share" title="查看更多" class="more">查看更多</a>
+</h2>
+<div class="block-content">
+	<div class="row module cl mixing">
+		[loop]
+		<div class="col col-4">
+			<dl class="box pic">
+				<dd class="m"><a href="{url}"{target} style="display: block; height: 240px; background-image: url({pic}); background-position: center center; background-repeat: no-repeat; background-size: cover;"></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			</dl>
+		</div>
+		[/loop]
+		[order=1]
+		<div class="col col-4">
+			<dl class="box pic">
+				<dd class="m"><a href="{url}"{target} style="display:block; width: 380px; height: 506px; background-image: url({pic}); background-position: center center; background-repeat: no-repeat; background-size: cover;"></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			<dl>
+		</div>
+		[/order]
+		[order=4]
+		<div class="col col-8">
+			<dl class="box pic">
+				<dd class="m"><a href="{url}"{target} style="display: block; width: 780px; height: 243px; background-image: url({pic}); background-position: center center; background-repeat: no-repeat; background-size: cover;"></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			</dl>
+		</div>
+		[/order]
+	</div>
+</div>
+
+<!-- 讨论区-精选帖子-120*90 -->
+<div class="block side">
+	<h2 class="block-title"><i class="icon icon-featured"></i>精选帖子
+		<a href="forum.php" title="查看更多" class="more">查看更多</a>
+	</h2>
+	<div class="block-content">
+		<div class="module cl xld">
+			[loop]
+			<dl class="cl">
+				<dd class="m"><a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" alt="{title}" /></a></dd>
+				<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
+			         <dd class="meta"><em class="z"><a href="home.php?mod=space&uid={authorid}"{target}>{author}</a></em><span class="view"><i class="icon icon-eye"></i>{views}</span><span class="reply"><i class="icon icon-reply"></i>{replies}</span>
+			         </dd>
+			</dl>
+			[/loop]
+		</div>
+	</div>
+</div>
+
+<!-- 讨论区-活跃用户 -->
+<div class="block side">
+	<h2 class="block-title"><i class="icon icon-users1"></i>活跃用户</h2>
+	<div class="block-content">
+		<div class="module cl xl xl1">
+			<ol>
+			[loop]
+			<li><em>{posts}</em><img class="vm" src="{avatar}" width="60" height="60" alt="{title}" /> <a href="{url}" title="{title}" c="1"{target}>{title}</a></li>
+			[/loop]
+			</ol>
+		</div>
+	</div>
+</div>
+
+<!-- 首页-友情链接-带Logo360*126 -->
+<ul class="link-logo">
+	[loop]
+	<li>
+		<a href="{url}" class="logo" style="background-image: url({pic});" {target} title="{title} {summary}"></a>
+		<a href="{url}" class="title" {target} title="{title} {summary}">{title}</a>
+	</li>
+	[/loop]
+</ul>
+<span class="picsize">{picwidth}({picheight}</span>	
+
+<!-- 首页-友情链接-仅文字 -->
+<ul class="link-text">
+	[loop]
+	<li><a href="{url}" {target} title="{title} {summary}">{title}</a></li>
+	[/loop]
+</ul>

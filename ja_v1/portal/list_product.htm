@@ -1,0 +1,56 @@
+<!--{template common/header}-->
+<!--[name]list_product[/name]-->
+<!--{eval $list = array();}-->
+<!--{eval $wheresql = category_get_wheresql($cat);}-->
+<!--{eval $list = category_get_list($cat, $wheresql, $page);}-->
+
+<div aria-label="breadcrumb" class="br">
+	<div class="container">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="./" title="{lang homepage}">{lang homepage}</a></li>
+		  <li class="breadcrumb-item active" aria-current="page">
+		  	<!--{loop $cat[ups] $value}--> <a href="{$portalcategory[$value['catid']]['caturl']}">$value[catname]</a><em>&rsaquo;</em><!--{/loop}-->
+		  	$cat[catname]
+		  </li>
+		</ol>
+	</div>
+</div>
+
+<div class="list product">
+	<div class="container">
+		<div class="row">
+			<!--{loop $list['list'] $value}-->
+				<!--{eval $highlight = article_title_style($value);}-->
+				<!--{eval $article_url = fetch_article_url($value);}-->
+
+				
+			<div class="col">
+				<div class="card">
+					
+					<a href="$article_url" class="card-img-top product" style="<!--{if $value[pic]}-->background-image: url($value[pic]);<!--{/if}-->"></a>
+
+					<div class="card-body">
+				    	<h5 class="card-title">
+					    	<a href="$article_url" $highlight>$value[title]</a> <!--{if $value[status] == 1}-->({lang moderate_need})<!--{/if}-->
+						</h5>
+				  </div>
+				</div>
+			</div>
+			<!--{/loop}-->
+			
+
+		</div>
+	</div>
+</div>
+
+			
+
+
+		<!--{if $list['multi']}--><div class="pgs cl">{$list['multi']}</div><!--{/if}-->
+
+
+	</div>
+</div>
+
+
+<!--{template common/footer}-->

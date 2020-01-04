@@ -1,0 +1,21 @@
+<!--{subtemplate search/header}-->
+
+<form class="searchform container" method="post" autocomplete="off" action="search.php?mod=portal" onsubmit="if($('scform_srchtxt')) searchFocus($('scform_srchtxt'));">
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	
+	<!--{subtemplate search/pubsearch}-->
+	<!--{hook/portal_top}-->
+
+</form>
+<div class="search-result">
+	<div class="container">
+		<div class="search-result-list">
+			<!--{if !empty($searchid) && submitcheck('searchsubmit', 1)}-->
+			<!--{subtemplate search/portal_list}-->
+			<!--{/if}-->
+		</div>
+	</div>
+</div>
+<!--{hook/portal_bottom}-->
+
+<!--{subtemplate search/footer}-->

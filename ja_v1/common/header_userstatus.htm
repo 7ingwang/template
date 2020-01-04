@@ -1,0 +1,42 @@
+
+
+
+<!--{if $_G['uid']}-->
+<div id="um">
+	<a href="javascript:void(null)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon icon-user" ></i></a>
+	<div class="avt">
+		<a href="javascript:void(null)" class="username dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{$_G[member][username]}</a>
+		<div class="dropdown-menu">
+		   <a class="dropdown-item" href="home.php?mod=space&uid=$_G[uid]" title="{lang visit_my_space}"><i class="icon icon-my"></i>{lang visit_my_space}</a>
+		   <a class="dropdown-item" href="home.php?mod=space&do=pm" id="pm_ntc" ><i class="icon icon-notice"></i>{lang pm_center}</a></li>
+		   
+		   <a class="dropdown-item" href="forum.php?mod=guide&view=my"><i class="icon icon-tiezi"></i>{lang mypost}</a>
+		   <a class="dropdown-item" href="home.php?mod=space&do=favorite&view=me"><i class="icon icon-keep"></i>{lang favorite}</a>
+		   <a class="dropdown-item" href="home.php?mod=space&do=friend"><i class="icon icon-friends"></i>{lang friends}</a>
+		   <!--{hook/global_myitem_extra}-->
+		   	
+		   <!--{hook/global_usernav_extra3}-->
+		   <a class="dropdown-item" href="home.php?mod=spacecp&ac=credit&showcredit=1"><i class="icon icon-integral"></i>{lang credits}: $_G[member][credits]</a>
+		 
+		   <!--{hook/global_usernav_extra4}-->
+		   <a class="dropdown-item" href="home.php?mod=spacecp"><i class="icon icon-setting"></i>{lang setup}</a>
+		   
+		   <div class="dropdown-divider"></div>
+		   <!--{hook/global_usernav_extra2}-->
+		   <a class="dropdown-item"  href="member.php?mod=logging&action=logout&formhash={eval echo formhash();}"><i class="icon icon-exit"></i>{lang logout}</a>
+		 </div> 
+	</div>
+</div>
+<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+<p>
+	<strong><a id="loginuser" class="noborder"><!--{echo dhtmlspecialchars($_G['cookie']['loginuser'])}--></a></strong>
+	<span class="pipe">|</span><a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)">{lang activation}</a>
+	<span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+</p>
+<!--{elseif !$_G[connectguest]}-->
+<div id="um" class="before">
+	<a href="plugin.php?id=smx_login:login">登录</a>
+	<a href="plugin.php?id=smx_login:register">注册</a>
+</div>
+<!--{else}-->
+<!--{/if}-->
